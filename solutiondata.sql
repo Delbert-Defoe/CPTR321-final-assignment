@@ -1,5 +1,7 @@
 CREATE DATABASE solutiondata;
+
 USE solutiondata;
+
 CREATE TABLE Citizen (
     NationalID INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
     FirstName VARCHAR(50) NOT Null,
@@ -12,11 +14,14 @@ CREATE TABLE Citizen (
     AptNumber INT,
     Occupation VARCHAR(25)
 );
+
 ALTER TABLE Citizen AUTO_INCREMENT = 1000000000;
+
 CREATE TABLE Occupation (
     OccupationName VARCHAR(25) PRIMARY KEY,
     AvgSalary FLOAT
 );
+
 CREATE TABLE Community (
     CommunityID INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
     Name VARCHAR(25),
@@ -34,7 +39,9 @@ CREATE TABLE Community (
     PoliceRelationship ENUM('good', 'moderate', 'bad'),
     RiskAssessment INT
 );
+
 ALTER TABLE Community AUTO_INCREMENT = 200000;
+
 CREATE TABLE Street (
     StreetID INT UNSIGNED PRIMARY KEY Auto_Increment,
     CommunityID INT UNSIGNED,
@@ -42,24 +49,29 @@ CREATE TABLE Street (
     RiskAssessment INT,
     FOREIGN KEY (CommunityID) REFERENCES Community(CommunityID)
 );
+
 ALTER TABLE Street AUTO_INCREMENT = 100000;
+
 CREATE TABLE District (
     DistrictName VARCHAR(50) PRIMARY KEY,
     PovertyRate DOUBLE,
     CrimeRate DOUBLE
 );
+
 CREATE TABLE Gang (
     GangName VARCHAR(50) PRIMARY KEY,
     GangColor VARCHAR(15),
     GangSymbol VARCHAR(255),
     RiskAssessment INT
 );
+
 CREATE TABLE GangTerritory (
     StreetID INT UNSIGNED,
     GangName VARCHAR(50),
     FOREIGN KEY (StreetID) REFERENCES Street(StreetID),
     FOREIGN KEY (GangName) REFERENCES Gang(GangName)
 );
+
 CREATE TABLE Report (
     ReportNo INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
     Reporter VARCHAR(50),
@@ -68,7 +80,9 @@ CREATE TABLE Report (
     StreetName VarChar(50),
     CommunityName VarChar(50)
 );
+
 ALTER TABLE Report AUTO_INCREMENT = 00000001;
+
 CREATE TABLE PoliceOfficer(
     PoliceOfficerID INT(10) UNSIGNED AUTO_INCREMENT,
     NationalID INT UNSIGNED,
@@ -78,7 +92,9 @@ CREATE TABLE PoliceOfficer(
     PRIMARY KEY (PoliceOfficerID),
     FOREIGN KEY (NationalID) REFERENCES Citizen(NationalID)
 );
+
 ALTER TABLE PoliceOfficer AUTO_INCREMENT = 3000000000;
+
 CREATE TABLE FireOfficer(
     FireOfficerID INT(10) UNSIGNED auto_increment,
     NationalID INT UNSIGNED,
@@ -88,7 +104,9 @@ CREATE TABLE FireOfficer(
     PRIMARY KEY (FireOfficerID),
     FOREIGN KEY (NationalID) REFERENCES Citizen(NationalID)
 );
+
 ALTER TABLE FireOfficer AUTO_INCREMENT = 2000000000;
+
 CREATE TABLE PoliceStation(
     StationID INT(10) UNSIGNED auto_increment,
     Name VARCHAR(80) NOT NULL,
@@ -98,7 +116,9 @@ CREATE TABLE PoliceStation(
     PRIMARY KEY (StationID),
     FOREIGN KEY(StreetID) REFERENCES Street(StreetID)
 );
+
 ALTER TABLE PoliceStation AUTO_INCREMENT = 5500000000;
+
 CREATE TABLE FireStation(
     StationID INT(10) UNSIGNED auto_increment,
     Name VARCHAR(80) NOT NULL,
@@ -108,7 +128,9 @@ CREATE TABLE FireStation(
     PRIMARY KEY (StationID),
     FOREIGN KEY(StreetID) REFERENCES Street(StreetID)
 );
-ALTER TABLE PoliceStation AUTO_INCREMENT = 6200000000;
+
+ALTER TABLE FireStation AUTO_INCREMENT = 6200000000;
+
 CREATE TABLE PersonOfInterest(
     NationalID INT UNSIGNED,
     GangName VARCHAR(50),
@@ -117,6 +139,7 @@ CREATE TABLE PersonOfInterest(
     FOREIGN KEY(NationalID) REFERENCES Citizen(NationalID),
     FOREIGN KEY(GangName) REFERENCES Gang(GangName)
 );
+
 CREATE TABLE CommunityCenter(
     Name VARCHAR(100) NOT NULL,
     CenterNo INT(5) NOT NULL,
@@ -126,6 +149,7 @@ CREATE TABLE CommunityCenter(
     FOREIGN KEY(CommunityID) REFERENCES Community(CommunityID),
     FOREIGN KEY(DistrictName) REFERENCES District(DistrictName)
 );
+
 CREATE TABLE CommunityProgram(
     Name VARCHAR(100) NOT NULL,
     Type VARCHAR(30) NOT NULL,
@@ -135,6 +159,7 @@ CREATE TABLE CommunityProgram(
     PRIMARY KEY(Name),
     FOREIGN KEY(CommunityID) REFERENCES Community(CommunityID)
 );
+
 CREATE TABLE FirefightingVehicle(
     LicensePlate VARCHAR(10) NOT NULL,
     Type VARCHAR(25) NOT NULL,
@@ -145,6 +170,7 @@ CREATE TABLE FirefightingVehicle(
     PRIMARY KEY(LicensePlate),
     FOREIGN KEY(FireStationID) REFERENCES FireStation(StationID)
 );
+
 CREATE TABLE Investigation (
     InvestigationNo INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
     PresidingOfficer INT,
@@ -155,6 +181,7 @@ CREATE TABLE Investigation (
     Subject VARCHAR(50),
     FOREIGN KEY (ReportNo) REFERENCES Report(ReportNo)
 );
+
 CREATE TABLE Convict(
     ReleaseDate DATE,
     NationalID INT UNSIGNED,
@@ -163,6 +190,7 @@ CREATE TABLE Convict(
     FOREIGN KEY(NationalID) REFERENCES Citizen(NationalID),
     FOREIGN KEY(InvestigationNo) REFERENCES Investigation(InvestigationNo)
 );
+
 CREATE TABLE WatchGroup(
     Name VARCHAR(50) NOT NULL,
     Leader VARCHAR(100) NOT NULL,
@@ -172,6 +200,7 @@ CREATE TABLE WatchGroup(
     PRIMARY KEY(Name),
     foreign key(CommunityID) REFERENCES Community(CommunityID)
 );
+
 CREATE TABLE School(
     Name VARCHAR(40) NOT NULL,
     Type ENUM('Primary', 'Secondary', 'Tertiary'),
@@ -184,6 +213,7 @@ CREATE TABLE School(
     FOREIGN KEY(CommunityID) REFERENCES community(CommunityID),
     FOREIGN KEY(Districtname) REFERENCES District(DistrictName)
 );
+
 CREATE TABLE Facility(
     Name VARCHAR(50) NOT NULL,
     Type VARCHAR(50) NOT NULL,
@@ -197,6 +227,7 @@ CREATE TABLE Facility(
     FOREIGN KEY(CommunityID) REFERENCES Community(CommunityID),
     FOREIGN KEY(DistrictName) REFERENCES District(DistrictName)
 );
+
 CREATE TABLE Respondent(
     ReportNo INT UNSIGNED,
     PoliceOfficer INT UNSIGNED,
@@ -206,6 +237,7 @@ CREATE TABLE Respondent(
     FOREIGN KEY (FireOFficer) REFERENCES FireOfficer(FireOfficerID),
     PRIMARY KEY (ReportNo, PoliceOfficer, FireOfficer)
 );
+
 ALTER TABLE Investigation AUTO_INCREMENT = 10000000;
 CREATE TABLE Suspect (
     InvestigationNo INT UNSIGNED,
@@ -215,12 +247,14 @@ CREATE TABLE Suspect (
     FOREIGN KEY (NationalID) REFERENCES Citizen(NationalID),
     FOREIGN KEY (GangAffiliation) REFERENCES Gang(GangName)
 );
+
 CREATE TABLE Witness (
     InvestigationNo INT UNSIGNED,
     NationalID INT UNSIGNED,
     FOREIGN KEY (InvestigationNo) REFERENCES Investigation (InvestigationNo),
     FOREIGN KEY (NationalID) REFERENCES Citizen(NationalID)
 );
+
 CREATE TABLE Patrol (
     StartTime TIME,
     EndTime TIME,
@@ -230,6 +264,7 @@ CREATE TABLE Patrol (
     FOREIGN KEY (CommunityID) REFERENCES Community(CommunityID),
     FOREIGN KEY (PoliceOfficer) REFERENCES PoliceOfficer(PoliceOfficerID)
 );
+
 CREATE TABLE PatrolVehicle (
     LicensePlate VARCHAR(10) PRIMARY KEY,
     Type VARCHAR(25),
@@ -239,6 +274,7 @@ CREATE TABLE PatrolVehicle (
     Available BIT,
     FOREIGN KEY (StationID) REFERENCES PoliceStation(StationID)
 );
+
 CREATE TABLE VehicleAssignmnets (
     PoliceOfficerID INT UNSIGNED,
     VehicleLicensePlate VARCHAR(10),
