@@ -155,6 +155,7 @@ CREATE TABLE Investigation (
     Subject VARCHAR(50),
     FOREIGN KEY (ReportNo) REFERENCES Report(ReportNo)
 );
+ALTER TABLE Investigation AUTO_INCREMENT = 10000000;
 CREATE TABLE Convict(
     ReleaseDate DATE,
     NationalID INT UNSIGNED,
@@ -206,7 +207,6 @@ CREATE TABLE Respondent(
     FOREIGN KEY (FireOFficer) REFERENCES FireOfficer(FireOfficerID),
     PRIMARY KEY (ReportNo, PoliceOfficer, FireOfficer)
 );
-ALTER TABLE Investigation AUTO_INCREMENT = 10000000;
 CREATE TABLE Suspect (
     InvestigationNo INT UNSIGNED,
     NationalID INT UNSIGNED,
@@ -234,7 +234,7 @@ CREATE TABLE PatrolVehicle (
     LicensePlate VARCHAR(10) PRIMARY KEY,
     Type VARCHAR(25),
     Make VARCHAR(15),
-    Year DATE,
+    Year CHAR(4),
     StationID INT UNSIGNED,
     Available BIT,
     FOREIGN KEY (StationID) REFERENCES PoliceStation(StationID)

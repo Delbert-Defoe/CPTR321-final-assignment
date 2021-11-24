@@ -203,55 +203,63 @@ VALUES (1, 1000000004),
     (4, 1000000005),
     (5, 2000000001),
     (5, 2000000005);
-INSERT INTO Case
-        VALUES (
-                Null,
-                3000000002,
-                "The case of Isaac Abraham investigates the events surrounding........",
-                "2020-01-19 00:00:00",
-                "2020-02-27 16:30:00",
-                1,
-                "Robbery"
-            ),
-            (
-                Null,
-                3000000001,
-                "The case of John Wick investigates the events surrounding.........",
-                "2020-01-09 16:30:00",
-                "2020-02-27 16:30:00",
-                2,
-                "Shooting"
-            ),
-            (
-                Null,
-                3000000002,
-                "The case of Zac Efron investigates the events surrounding.........",
-                "2020-07-30 16:30:00",
-                "2020-12-20 16:30:00",
-                3,
-                "Hit and Run"
-            ),
-            (
-                Null,
-                3000000003,
-                "The case of Ludwig Beethoven investigates the events surrounding............",
-                "2020-01-02 00:00:00",
-                NULL,
-                5,
-                "Arson"
-            ),
-            (
-                NULL,
-                3000000004,
-                "The case of Jill Doe investigates the events surrounding...........",
-                "2020-08-27 00:00:00",
-                Null,
-                4,
-                "Domestic Violence"
-            );
+INSERT INTO Investigation
+VALUES (
+        Null,
+        3000000002,
+        "The case of Isaac Abraham investigates the events surrounding........",
+        "2020-01-19 00:00:00",
+        "2020-02-27 16:30:00",
+        1,
+        "Robbery"
+    ),
+    (
+        Null,
+        3000000001,
+        "The case of John Wick investigates the events surrounding.........",
+        "2020-01-09 16:30:00",
+        "2020-02-27 16:30:00",
+        2,
+        "Shooting"
+    ),
+    (
+        Null,
+        3000000002,
+        "The case of Zac Efron investigates the events surrounding.........",
+        "2020-07-30 16:30:00",
+        "2020-12-20 16:30:00",
+        3,
+        "Hit and Run"
+    ),
+    (
+        Null,
+        3000000003,
+        "The case of Ludwig Beethoven investigates the events surrounding............",
+        "2020-01-02 00:00:00",
+        NULL,
+        5,
+        "Arson"
+    ),
+    (
+        NULL,
+        3000000004,
+        "The case of Jill Doe investigates the events surrounding...........",
+        "2020-08-27 00:00:00",
+        Null,
+        4,
+        "Domestic Violence"
+    );
 INSERT INTO Suspect
 VALUES (10000000, 1000000000, NULL),
     (10000002, 1000000001, "Santos"),
     (10000003, 1000000002, "Crippys"),
     (10000004, 1000000003, "Crippys"),
     (10000005, 1000000004, "Bloddys");
+INSERT INTO Witness
+VALUES (100000004, 1000000003);
+INSERT INTO Patrols
+VALUES ("12:00:00", "13:00:00", 3000000005, 200003),
+    ("13:00:00", "14:00:00", 3000000005, 200002),
+    ("14:00:00", "15:00:00", 3000000003, 200003),
+    ("15:00:00", "16:00:00", 3000000004, 200002),
+    ("16:00:00", "17:00:00", 3000000005, 200003),
