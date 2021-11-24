@@ -1,54 +1,54 @@
--- -- INSERT INTO Community
--- -- VALUES(
--- --         Null,
--- --         "Bellevue Chopin",
--- --         "St.Patricks",
--- --         "Single-family",
--- --         NULL,
--- --         0.2,
--- --         "good",
--- --         1
--- --     ),
--- --     (
--- --         Null,
--- --         "Maracas",
--- --         "St.George",
--- --         "Colonial",
--- --         NULL,
--- --         0.01,
--- --         "good",
--- --         2
--- --     ),
--- --     (
--- --         Null,
--- --         "Chaguanas",
--- --         "Caroni",
--- --         "Single-Family",
--- --         "Industrial",
--- --         1,
--- --         "moderate",
--- --         3
--- --     ),
--- --     (
--- --         Null,
--- --         "Tuna Puna",
--- --         "St.George",
--- --         "TownHouse",
--- --         "Commercial",
--- --         1.5,
--- --         "bad",
--- --         5
--- --     ),
--- --     (
--- --         Null,
--- --         "Roseau",
--- --         "St.John",
--- --         "Apartment",
--- --         "Commercial",
--- --         5,
--- --         "good",
--- --         2
--- --     );
+-- INSERT INTO Community
+-- VALUES(
+--         Null,
+--         "Bellevue Chopin",
+--         "St.Patricks",
+--         "Single-family",
+--         NULL,
+--         0.2,
+--         "good",
+--         1
+--     ),
+--     (
+--         Null,
+--         "Maracas",
+--         "St.George",
+--         "Colonial",
+--         NULL,
+--         0.01,
+--         "good",
+--         2
+--     ),
+--     (
+--         Null,
+--         "Chaguanas",
+--         "Caroni",
+--         "Single-Family",
+--         "Industrial",
+--         1,
+--         "moderate",
+--         3
+--     ),
+--     (
+--         Null,
+--         "Tuna Puna",
+--         "St.George",
+--         "TownHouse",
+--         "Commercial",
+--         1.5,
+--         "bad",
+--         5
+--     ),
+--     (
+--         Null,
+--         "Roseau",
+--         "St.John",
+--         "Apartment",
+--         "Commercial",
+--         5,
+--         "good",
+--         2
+--     );
 -- INSERT INTO Citizen
 -- VALUES (
 --         NULL,
@@ -117,11 +117,11 @@
 --     ("Doctor", 23444.45),
 --     ("Developer", 13246);
 -- INSERT INTO Street
--- VALUES (Null, 200004, "Lovers Lane", 1),
---     (Null, 200004, "Good Street", 1),
---     (Null, 200005, "Great Street", 4),
---     (Null, 200007, "Independence Lane", 5),
---     (Null, 200006, "King George Street", 2);
+-- VALUES (Null, 200001, "Lovers Lane", 1),
+--     (Null, 200001, "Good Street", 1),
+--     (Null, 200002, "Great Street", 4),
+--     (Null, 200004, "Independence Lane", 5),
+--     (Null, 200003, "King George Street", 2);
 -- INSERT INTO District
 -- VALUES ("St. George", 2, 12),
 --     ("Caroni", 4.33, 20),
@@ -150,11 +150,11 @@
 --         2
 --     );
 -- INSERT INTO GangTerritory
--- VALUES (100018, "Crippys"),
---     (100017, "Bloodys"),
---     (100016, "Santos"),
---     (100019, "Bloodys"),
---     (100015, "Santos");
+-- VALUES (100007, "Crippys"),
+--     (100008, "Bloodys"),
+--     (100009, "Santos"),
+--     (100005, "Prophets"),
+--     (100006, "Santos");
 -- INSERT INTO Report
 -- VALUES (
 --         NULL,
@@ -197,12 +197,12 @@
 --         "Roseau"
 --     );
 INSERT INTO Respondent
-VALUES (1, 1000000004),
-    (2, 1000000003),
-    (2, 1000000002),
-    (4, 1000000005),
-    (5, 2000000001),
-    (5, 2000000005);
+VALUES (1, 1000000004, NULL),
+    (2, 1000000003, NULL),
+    (2, 1000000002, NULL),
+    (4, 1000000005, NULL),
+    (5, NULL, 2000000001),
+    (5, NULL, 2000000005);
 INSERT INTO Investigation
 VALUES (
         Null,
@@ -262,4 +262,51 @@ VALUES ("12:00:00", "13:00:00", 3000000005, 200003),
     ("13:00:00", "14:00:00", 3000000005, 200002),
     ("14:00:00", "15:00:00", 3000000003, 200003),
     ("15:00:00", "16:00:00", 3000000004, 200002),
-    ("16:00:00", "17:00:00", 3000000005, 200003),
+    ("16:00:00", "17:00:00", 3000000005, 200003);
+INSERT INTO PatrolVehicle
+VALUES (
+        "TTPF-494",
+        "Pickup",
+        "Toyota",
+        "2010",
+        5500000000,
+        1
+    ),
+    (
+        "TTPF-495",
+        "SUV",
+        "Toyota",
+        "2016",
+        5500000001,
+        0
+    ),
+    (
+        "TTPF-496",
+        "Pickup",
+        "Ford",
+        "2018",
+        5500000002,
+        1
+    ),
+    (
+        "TTPF-497",
+        "Pickup",
+        "Ford",
+        "2018",
+        5500000003,
+        1
+    ),
+    (
+        "TTPF-498",
+        "SUV",
+        "Toyota",
+        "2016",
+        5500000004,
+        1
+    );
+INSERT INTO VehicleAssignments
+VALUES (3000000001, "TTPF-494"),
+    (3000000002, "TTPF-495"),
+    (3000000003, "TTPF-496"),
+    (3000000004, "TTPF-497"),
+    (3000000005, "TTPF-498");
