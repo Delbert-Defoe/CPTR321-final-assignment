@@ -310,3 +310,394 @@ VALUES (3000000001, "TTPF-494"),
     (3000000003, "TTPF-496"),
     (3000000004, "TTPF-497"),
     (3000000005, "TTPF-498");
+INSERT INTO PoliceOfficer
+VALUES (NULL, 1546005801, "Captain", 1000003001, 5),
+    (Null, 1599640004, "Sergeant", 1000340002, 3),
+    (Null, 1456556005, "Corporal", 2420000003, 2),
+    (Null, 1693320004, "Corporal", 1320000006, 4),
+    (Null, 1356777432, "Patrol", 1031000005, 3);
+INSERT INTO FireOfficer
+VALUES(NULL, 1346005801, "Captain", 23834834843, 5),
+    (NULL, 1254954993, "Fire Chief", 2383824892, 4),
+    (NULL, 1593556005, "Lieutenant", 2329832933, 3),
+    (NULL, 1693321040, "Firefighter", 2393934894, 2),
+    (NULL, 1512477434, "Fightfighter", 2939398221, 2);
+INSERT INTO PoliceStation
+VALUES(
+        NULL,
+        "Cedros Police Station",
+        4222130561,
+        "300-0123",
+        67
+    ),
+    (
+        NULL,
+        "Fyzabad Police Station",
+        7067020561,
+        "300-0124",
+        128
+    ),
+    (
+        NULL,
+        "Arouca Police Station",
+        1227034031,
+        "300-0125",
+        83
+    ),
+    (
+        NULL,
+        "Belmont Police Station",
+        8623030561,
+        "300-0126",
+        243
+    ),
+    (
+        NULL,
+        "Mayaro Police Station",
+        4955060561,
+        "300-0127",
+        74
+    );
+INSERT INTO FireStation
+VALUES(
+        NULL,
+        "Mayaro Fire Station",
+        1200014432,
+        "200-4567",
+        6
+    ),
+    (
+        NULL,
+        "Penal Fire Station",
+        2123300002,
+        "200-4568",
+        8
+    ),
+    (
+        NULL,
+        "Arouca Fire Station",
+        3344600003,
+        "200-4569",
+        12
+    ),
+    (
+        NULL,
+        "Lady Hailes Fire Station",
+        7000242932,
+        "200-4570",
+        23
+    ),
+    (
+        NULL,
+        "Chaguaramas Fire Station",
+        2204100006,
+        "200-4571",
+        14
+    );
+INSERT INTO PersonOfInterest
+VALUES(
+        1000000001,
+        "Bloddys",
+        "POI have a long history with Victim A",
+        4
+    ),
+    (
+        3400348923,
+        "Santos",
+        "POI have a recurring history with domestic violence",
+        2
+    ),
+    (
+        8712782382,
+        NULL,
+        "POI suffered physical abuse from Victims A&B resulting in retaliation",
+        3
+    ),
+    (
+        4834838322,
+        "Crippys",
+        "POI was under the influence of narcotics",
+        5
+    ),
+    (
+        9298239823,
+        NULL,
+        "POI suffering from Dementia",
+        5
+    );
+INSERT INTO CommunityCenter
+VALUES(
+        "Penal Community Center",
+        18282,
+        21029338,
+        "Penal"
+    ),
+    (
+        "Fyzabad Community Center",
+        29983,
+        23889434,
+        "Fyzabad"
+    ),
+    (
+        "Caroni Community Center",
+        18833,
+        23993393,
+        "Caroni"
+    ),
+    (
+        "Champ Fleurs Community Center",
+        29983,
+        23889434,
+        "Fyzabad"
+    ),
+    (
+        "Arouca Community Centerr",
+        34893,
+        23983232,
+        "Arouca"
+    );
+INSERT INTO CommunityProgram
+VALUES(
+        "Food for the Soul",
+        "Food Bank",
+        "Provide hot and safe food for less fortunate.",
+        "Mike Thomas",
+        21029338
+    ),
+    (
+        "Better Life Program",
+        "House Funding Charity",
+        "Provide housing settlements for less fortunate",
+        "Dania Adams",
+        23993393
+    ),
+    (
+        "Veteran Appreciation Program",
+        "Aid for Army Survivors",
+        "Provide supplies and rehabiliation for surving war veterans",
+        "Jayka Mwibime",
+        21138484
+    ),
+    (
+        "Ex Convict Rehabiliation Foundation",
+        "Rehabiliation Program for Previous Criminals",
+        "Provide rehabiliation and aid for previous convicted criminals.",
+        "Hamiel Oak",
+        23889434
+    ),
+    (
+        "Good Food Program	Food Bank",
+        "Provide hot and safe food for less fortunate.",
+        "Stacy White",
+        23983232
+    );
+INSERT INTO FirefightingVehicle
+VALUES(
+        "TTFD521",
+        "Truck",
+        "Toyota",
+        2010,
+        TRUE,
+        2344985832
+    ),
+    (
+        "TTFD132",
+        "Suv",
+        "Toyota",
+        2016,
+        FALSE,
+        1923923329
+    ),
+    (
+        "TTFD134",
+        "Truck",
+        "Ford",
+        2018,
+        FALSE,
+        1923923329
+    ),
+    (
+        "TTFD912",
+        "Truck",
+        "Ford",
+        2018,
+        TRUE,
+        2294384398
+    ),
+    (
+        "TTFD553",
+        "Suv",
+        "Toyota",
+        2016,
+        TRUE,
+        2344985832
+    );
+INSERT INTO Convict
+VALUES(2025 / 05 / 19, 1000000001, Null, 12044503),
+    (2034 / 03 / 24, 1000000012, "Santos", 14849220),
+    (2029 / 11 / 29, 1000001000, "Crippys", 19323893),
+    (2022 / 04 / 23, 1000000580, Null, 19439834),
+    (2047 / 12 / 05, 1000000670, "Bloddys", 19832423);
+INSERT INTO WatchGroup
+VALUES(
+        "Mayaro Theft Crime Preventation Watch Group",
+        "John Fayne",
+        168,
+        "Focuses on reporting robberies occuring in the community.",
+        2000001
+    ),
+    (
+        "San Juan Maco Group",
+        "Marcel Ines",
+        215,
+        "Focuses on reporting suspicious activities in the community.",
+        2000002
+    ),
+    (
+        "Barataria NightTime Watch",
+        "Jacob Mike",
+        90,
+        "Engage in weekly meetings, and focuses on reporting crimes especially those which occurs in the nighttime.",
+        2000003
+    ),
+    (
+        "Penal Community Watch Group",
+        "Yesha Abdul",
+        192,
+        "Coordinates with other community watch groups to observe and report various crimes and suspicious individuals.",
+        2000004
+    ),
+    (
+        "Couva Zero Domestic Tolerance Watch Group",
+        "Maya Zimmine",
+        103,
+        "Focuses on reporting domestic abuse that occurs in the community.",
+        2000005
+    );
+INSERT INTO School
+VALUES(
+        "St.George's College	Secondary",
+        "Secondary",
+        230,
+        100239,
+        21029338,
+        "Barataria"
+    ),
+    (
+        "University of Trinidad and Tobago",
+        "Tertiary",
+        2500,
+        100031,
+        23993393,
+        "Curepe"
+    ),
+    (
+        "University of the Southern Caribbean",
+        "Tertiary",
+        4000,
+        100519,
+        21138484,
+        "Maracas"
+    ),
+    (
+        "St. Joseph Primary School",
+        "Primary",
+        150,
+        100401,
+        23889434,
+        "St.Joseph"
+    ),
+    (
+        "Trinity's College",
+        "Secondary",
+        300,
+        100029,
+        23983232,
+        "Port of Spain"
+    );
+INSERT INTO Facility
+VALUES(
+        "Malt East Park",
+        "Recreational Park",
+        "Child",
+        2,
+        120001,
+        21029338,
+        "Barataria"
+    ),
+    (
+        "Las Cuevas Park",
+        "Beach",
+        "Adult",
+        1,
+        323432,
+        23993393,
+        "Maracas"
+    ),
+    (
+        "Harry's Waterpark	Waterpark",
+        "Child",
+        1,
+        335921,
+        21138484,
+        "Aripita"
+    ),
+    (
+        "Urban Gym",
+        "Gym",
+        "Adult",
+        4,
+        740123,
+        23889434,
+        "St.Joseph"
+    ),
+    (
+        "Queen's Park Savannah",
+        "Savannah",
+        "Elderly",
+        3,
+        320075,
+        23983232,
+        "Port of Spain"
+    );
+INSERT INTO PatrolVehicle
+VALUES(
+        "TTPF-23432",
+        "Car",
+        "Chevrolet",
+        2008,
+        TRUE,
+        2344985832
+    ),
+    (
+        "TTPF-19229",
+        "Suv",
+        "Nissan",
+        2013,
+        FALSE,
+        1923923329
+    ),
+    (
+        "TTPF-23435",
+        "Car",
+        "Chevrolet",
+        2013,
+        TRUE,
+        2344985832
+    ),
+    (
+        "TTPF-22998",
+        "Suv",
+        "Ford",
+        2010,
+        FALSE,
+        2294384398
+    ),
+    (
+        "TTPF-19229",
+        "Suv",
+        "Nissan",
+        2009,
+        FALSE,
+        1923923329
+    );

@@ -139,7 +139,7 @@ CREATE TABLE FirefightingVehicle(
     LicensePlate VARCHAR(10) NOT NULL,
     Type VARCHAR(25) NOT NULL,
     Make VARCHAR(15) NOT NULL,
-    Year DATE NOT NULL,
+    Year CHAR(4) NOT NULL,
     Availability BIT,
     FireStationID INT(10) UNSIGNED,
     PRIMARY KEY(LicensePlate),
@@ -175,7 +175,7 @@ CREATE TABLE WatchGroup(
 );
 CREATE TABLE School(
     Name VARCHAR(40) NOT NULL,
-    Type VARCHAR(20) NOT NULL,
+    Type ENUM('Primary', 'Secondary', 'Tertiary'),
     Population INT NOT NULL,
     StreetID INT UNSIGNED,
     CommunityID INT UNSIGNED,
@@ -188,7 +188,7 @@ CREATE TABLE School(
 CREATE TABLE Facility(
     Name VARCHAR(50) NOT NULL,
     Type VARCHAR(50) NOT NULL,
-    AgeGroup INT NOT NULL,
+    AgeGroup ENUM('Elderly', 'Adult', 'Child'),
     Risk INT,
     StreetID INT UNSIGNED,
     CommunityID INT UNSIGNED,
