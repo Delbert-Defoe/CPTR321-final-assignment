@@ -255,3 +255,59 @@ VALUES (10000000, 1000000000, NULL),
     (10000003, 1000000002, "Crippys"),
     (10000004, 1000000003, "Crippys"),
     (10000005, 1000000004, "Bloddys");
+    
+INSERT INTO PoliceOfficer  
+VALUES (NULL, 1546005801, "Captain", 1000003001, 5),
+(Null, 1599640004,	"Sergeant",	1000340002,	3),
+(Null, 1456556005,	"Corporal",	2420000003,	2)
+(Null, 1693320004,	"Corporal",	1320000006,	4)
+(Null, 1356777432,	"Patrol", 1031000005, 3);
+
+INSERT INTO FireOfficer
+VALUES(NULL, 1346005801, "Captain",	23834834843, 5), 
+(NULL, 1254954993,	"Fire Chief", 2383824892, 4),
+(NULL, 1593556005,	"Lieutenant", 2329832933, 3),
+(NULL, 1693321040,	"Firefighter", 2393934894, 2),
+(NULL, 1512477434,	"Fightfighter", 2939398221,	2);
+
+INSERT INTO PoliceStation
+VALUES(NULL, "Cedros Police Station", 4222130561, "300-0123", 67),
+(NULL, "Fyzabad Police Station", 7067020561, "300-0124", 128),
+(NULL, "Arouca Police Station", 1227034031, "300-0125", 83),
+(NULL, "Belmont Police Station", 8623030561, "300-0126", 243),
+(NULL, "Mayaro Police Station", 4955060561, "300-0127", 74);
+
+INSERT INTO FireStation
+VALUES(NULL, "Mayaro Fire Station",	1200014432,	"200-4567",	6),
+(NULL, "Penal Fire Station", 2123300002, "200-4568", 8),
+(NULL, "Arouca Fire Station", 3344600003, "200-4569", 12),
+(NULL, "Lady Hailes Fire Station", 7000242932, "200-4570", 23),
+(NULL, "Chaguaramas Fire Station", 2204100006,	"200-4571",	14);
+
+INSERT INTO PersonOfInterest
+VALUES(1000000001, "Bloddys", "POI have a long history with Victim A", 4),
+(3400348923, "Santos", "POI have a recurring history with domestic violence", 2),
+(8712782382, NULL, "POI suffered physical abuse from Victims A&B resulting in retaliation", 3),
+(4834838322, "Crippys", "POI was under the influence of narcotics", 5),
+(9298239823, NULL, "POI suffering from Dementia", 5);
+
+INSERT INTO CommunityCenter
+VALUES("Penal Community Center", 18282, 21029338, "Penal"),
+("Fyzabad Community Center", 29983, 23889434, "Fyzabad"),
+("Caroni Community Center", 18833, 23993393, "Caroni"),
+("Champ Fleurs Community Center", 29983, 23889434, "Fyzabad"),
+("Arouca Community Centerr", 34893, 23983232, "Arouca");
+
+INSERT INTO CommunityProgram
+VALUES("Food for the Soul",	"Food Bank", "Provide hot and safe food for less fortunate.",	"Mike Thomas",	21029338),
+("Better Life Program",	"House Funding Charity",	"Provide housing settlements for less fortunate",	"Dania Adams",	23993393),
+("Veteran Appreciation Program",	"Aid for Army Survivors",	"Provide supplies and rehabiliation for surving war veterans",	"Jayka Mwibime",	21138484),
+("Ex Convict Rehabiliation Foundation",	"Rehabiliation Program for Previous Criminals", 	"Provide rehabiliation and aid for previous convicted criminals.",	"Hamiel Oak",	23889434),
+("Good Food Program	Food Bank",	"Provide hot and safe food for less fortunate.",	"Stacy White", 23983232);
+
+INSERT INTO FirefightingVehicle
+VALUES("TTFD521",	"Truck",	"Toyota",	2010,	TRUE,	2344985832),
+("TTFD132",	"Suv",	"Toyota",	2016,	FALSE,	1923923329),
+("TTFD134",	"Truck",	"Ford",	2018,	FALSE,	1923923329),
+("TTFD912",	"Truck", "Ford",	2018,	TRUE,	2294384398),
+("TTFD553",	"Suv",	"Toyota",	2016,	TRUE,	2344985832);
