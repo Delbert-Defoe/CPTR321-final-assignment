@@ -203,7 +203,8 @@ VALUES (1, 1000000004),
     (4, 1000000005),
     (5, 2000000001),
     (5, 2000000005);
-INSERT INTO Case
+    
+INSERT INTO Investigation
         VALUES (
                 Null,
                 3000000002,
@@ -259,8 +260,8 @@ VALUES (10000000, 1000000000, NULL),
 INSERT INTO PoliceOfficer  
 VALUES (NULL, 1546005801, "Captain", 1000003001, 5),
 (Null, 1599640004,	"Sergeant",	1000340002,	3),
-(Null, 1456556005,	"Corporal",	2420000003,	2)
-(Null, 1693320004,	"Corporal",	1320000006,	4)
+(Null, 1456556005,	"Corporal",	2420000003,	2),
+(Null, 1693320004,	"Corporal",	1320000006,	4),
 (Null, 1356777432,	"Patrol", 1031000005, 3);
 
 INSERT INTO FireOfficer
@@ -311,3 +312,38 @@ VALUES("TTFD521",	"Truck",	"Toyota",	2010,	TRUE,	2344985832),
 ("TTFD134",	"Truck",	"Ford",	2018,	FALSE,	1923923329),
 ("TTFD912",	"Truck", "Ford",	2018,	TRUE,	2294384398),
 ("TTFD553",	"Suv",	"Toyota",	2016,	TRUE,	2344985832);
+
+INSERT INTO Convict
+VALUES(2025/05/19, 1000000001, Null, 12044503),
+(2034/03/24, 1000000012, "Santos", 14849220),
+(2029/11/29, 1000001000, "Crippys", 19323893),
+(2022/04/23, 1000000580, Null, 19439834),
+(2047/12/05, 1000000670, "Bloddys", 19832423);
+
+INSERT INTO WatchGroup
+VALUES("Mayaro Theft Crime Preventation Watch Group",	"John Fayne",	168,	"Focuses on reporting robberies occuring in the community.",	2000001),
+("San Juan Maco Group", "Marcel Ines",	215,	"Focuses on reporting suspicious activities in the community.",	2000002),
+("Barataria NightTime Watch",	"Jacob Mike",	90,	"Engage in weekly meetings, and focuses on reporting crimes especially those which occurs in the nighttime.", 2000003),
+("Penal Community Watch Group",	"Yesha Abdul",	192,	"Coordinates with other community watch groups to observe and report various crimes and suspicious individuals.", 2000004),
+("Couva Zero Domestic Tolerance Watch Group",	"Maya Zimmine",	103,	"Focuses on reporting domestic abuse that occurs in the community.",	2000005);
+
+INSERT INTO School
+VALUES("St.George's College	Secondary",	"Secondary", 230,	100239,	21029338,"Barataria"),
+("University of Trinidad and Tobago",	"Tertiary",	2500,	100031,	23993393,	"Curepe"),
+("University of the Southern Caribbean", "Tertiary",	4000,	100519,	21138484,	"Maracas"),
+("St. Joseph Primary School",	"Primary",	150,	100401,	23889434,	"St.Joseph"),
+("Trinity's College",	"Secondary",	300,	100029,	23983232,	"Port of Spain");
+
+INSERT INTO Facility
+VALUES("Malt East Park",	"Recreational Park",	"Child",	2,	120001,	21029338,	"Barataria"),
+("Las Cuevas Park",	"Beach",	"Adult",	1,	323432,	23993393,	"Maracas"),
+("Harry's Waterpark	Waterpark",	"Child",	1,	335921,	21138484,	"Aripita"),
+("Urban Gym",	"Gym",	"Adult",	4,	740123,	23889434,	"St.Joseph"),
+("Queen's Park Savannah",	"Savannah",	"Elderly",	3,	320075,	23983232,	"Port of Spain");
+
+INSERT INTO PatrolVehicle
+VALUES("TTPF-23432",	"Car",	"Chevrolet",	2008,	TRUE,	2344985832),
+("TTPF-19229",	"Suv",	"Nissan",	2013,	FALSE,	1923923329),
+("TTPF-23435",	"Car",	"Chevrolet",	2013,	TRUE,	2344985832),
+("TTPF-22998",	"Suv",	"Ford",	2010,	FALSE,	2294384398),
+("TTPF-19229",	"Suv",	"Nissan",	2009,	FALSE,	1923923329);
