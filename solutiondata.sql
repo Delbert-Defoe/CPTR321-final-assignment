@@ -69,46 +69,49 @@ CREATE TABLE Report (
     CommunityName VarChar(50)
 );
 ALTER TABLE Report AUTO_INCREMENT = 00000001;
+CREATE TABLE PoliceStation(
+    StationID INT(9) UNSIGNED auto_increment,
+    Name VARCHAR(100) NOT NULL,
+    StreetID INT UNSIGNED,
+    TelephoneNo varchar(8) NOT NULL,
+    TotalVehicles INT(5) NOT NULL,
+    PRIMARY KEY (StationID),
+    FOREIGN KEY(StreetID) REFERENCES Street(StreetID)
+);
+ALTER TABLE PoliceStation AUTO_INCREMENT = 550000000;
 CREATE TABLE PoliceOfficer(
     PoliceOfficerID INT(10) UNSIGNED AUTO_INCREMENT,
     NationalID INT UNSIGNED,
     RankPosition VARCHAR(50) NOT NULL,
-    CommandingOfficer INT(10) NOT NULL,
+    StationID INT(9),
+    CommandingOfficer INT(10),
     PsychologicalAssessment INT(1) NOT NULL,
     PRIMARY KEY (PoliceOfficerID),
     FOREIGN KEY (NationalID) REFERENCES Citizen(NationalID)
 );
 ALTER TABLE PoliceOfficer AUTO_INCREMENT = 3000000000;
+CREATE TABLE FireStation(
+    StationID INT(9) UNSIGNED auto_increment,
+    Name VARCHAR(80) NOT NULL,
+    Chief INT(10),
+    StreetID INT UNSIGNED,
+    TelephoneNo varchar(8) NOT NULL,
+    TotalVehicles INT(5) NOT NULL,
+    PRIMARY KEY (StationID),
+    FOREIGN KEY(StreetID) REFERENCES Street(StreetID)
+);
+ALTER TABLE FireStation AUTO_INCREMENT = 620000000;
 CREATE TABLE FireOfficer(
     FireOfficerID INT(10) UNSIGNED auto_increment,
     NationalID INT UNSIGNED,
     RankPosition VARCHAR(50) NOT NULL,
-    FireChief INT(10) NOT NULL,
+    StationID INT(9) UNSIGNED,
     PsychologicalAssessment INT(1) NOT NULL,
     PRIMARY KEY (FireOfficerID),
-    FOREIGN KEY (NationalID) REFERENCES Citizen(NationalID)
+    FOREIGN KEY (NationalID) REFERENCES Citizen(NationalID),
+    FOREIGN KEY (StationID) REFERENCES FireStation(StationID)
 );
 ALTER TABLE FireOfficer AUTO_INCREMENT = 2000000000;
-CREATE TABLE PoliceStation(
-    StationID INT(10) UNSIGNED auto_increment,
-    Name VARCHAR(80) NOT NULL,
-    StreetID INT UNSIGNED,
-    TelephoneNo varchar(8) NOT NULL,
-    TotalVehicles INT(5) NOT NULL,
-    PRIMARY KEY (StationID),
-    FOREIGN KEY(StreetID) REFERENCES Street(StreetID)
-);
-ALTER TABLE PoliceStation AUTO_INCREMENT = 5500000000;
-CREATE TABLE FireStation(
-    StationID INT(10) UNSIGNED auto_increment,
-    Name VARCHAR(80) NOT NULL,
-    StreetID INT UNSIGNED,
-    TelephoneNo varchar(8) NOT NULL,
-    TotalVehicles INT(5) NOT NULL,
-    PRIMARY KEY (StationID),
-    FOREIGN KEY(StreetID) REFERENCES Street(StreetID)
-);
-ALTER TABLE PoliceStation AUTO_INCREMENT = 6200000000;
 CREATE TABLE PersonOfInterest(
     NationalID INT UNSIGNED,
     GangName VARCHAR(50),
@@ -119,13 +122,12 @@ CREATE TABLE PersonOfInterest(
 );
 CREATE TABLE CommunityCenter(
     Name VARCHAR(100) NOT NULL,
-    CenterNo INT(5) NOT NULL,
-    CommunityID INT UNSIGNED,
-    DistrictName VARCHAR(50),
+    CenterNo INT(5) NOT NULL AUTO_INCREMENT,
+    StreetAddress INT UNSIGNED,
     PRIMARY KEY(CenterNo),
-    FOREIGN KEY(CommunityID) REFERENCES Community(CommunityID),
-    FOREIGN KEY(DistrictName) REFERENCES District(DistrictName)
+    FOREIGN KEY (StreetAddress) REFERENCES Street(StreetID)
 );
+ALTER TABLE CommunityCenter AUTO_INCREMENT = 80000;
 CREATE TABLE CommunityProgram(
     Name VARCHAR(100) NOT NULL,
     Type VARCHAR(30) NOT NULL,
@@ -178,12 +180,8 @@ CREATE TABLE School(
     Type ENUM('Primary', 'Secondary', 'Tertiary'),
     Population INT NOT NULL,
     StreetID INT UNSIGNED,
-    CommunityID INT UNSIGNED,
-    DistrictName VARCHAR(50),
     PRIMARY KEY(Name),
-    FOREIGN KEY(StreetID) REFERENCES Street(StreetID),
-    FOREIGN KEY(CommunityID) REFERENCES community(CommunityID),
-    FOREIGN KEY(Districtname) REFERENCES District(DistrictName)
+    FOREIGN KEY(StreetID) REFERENCES Street(StreetID)
 );
 CREATE TABLE Facility(
     Name VARCHAR(50) NOT NULL,
@@ -191,12 +189,8 @@ CREATE TABLE Facility(
     AgeGroup ENUM('Elderly', 'Adult', 'Child'),
     Risk INT,
     StreetID INT UNSIGNED,
-    CommunityID INT UNSIGNED,
-    DistrictName VARCHAR(50),
     PRIMARY KEY(Name),
-    FOREIGN KEY(StreetID) REFERENCES Street(StreetID),
-    FOREIGN KEY(CommunityID) REFERENCES Community(CommunityID),
-    FOREIGN KEY(DistrictName) REFERENCES District(DistrictName)
+    FOREIGN KEY(StreetID) REFERENCES Street(StreetID)
 );
 CREATE TABLE Respondent(
     ReportNo INT UNSIGNED,
@@ -204,16 +198,17 @@ CREATE TABLE Respondent(
     FireOfficer INT UNSIGNED,
     FOREIGN KEY (ReportNo) REFERENCES Report(ReportNo),
     FOREIGN KEY (PoliceOfficer) REFERENCES PoliceOfficer(PoliceOfficerID),
-    FOREIGN KEY (FireOFficer) REFERENCES FireOfficer(FireOfficerID),
-    PRIMARY KEY (ReportNo, PoliceOfficer, FireOfficer)
+    FOREIGN KEY (FireOFficer) REFERENCES FireOfficer(FireOfficerID)
 );
+ALTER TABLE Investigation AUTO_INCREMENT = 10000000;
 CREATE TABLE Suspect (
     InvestigationNo INT UNSIGNED,
     NationalID INT UNSIGNED,
     GangAffiliation VARCHAR(50),
     FOREIGN KEY (InvestigationNo) REFERENCES Investigation(InvestigationNo),
     FOREIGN KEY (NationalID) REFERENCES Citizen(NationalID),
-    FOREIGN KEY (GangAffiliation) REFERENCES Gang(GangName)
+    FOREIGN KEY (GangAffiliation) REFERENCES Gang(GangName),
+    PRIMARY KEY (InvestigationNo, NationalID)
 );
 CREATE TABLE Witness (
     InvestigationNo INT UNSIGNED,
@@ -239,9 +234,19 @@ CREATE TABLE PatrolVehicle (
     Available BIT,
     FOREIGN KEY (StationID) REFERENCES PoliceStation(StationID)
 );
-CREATE TABLE VehicleAssignmnets (
+CREATE TABLE VehicleAssignments (
     PoliceOfficerID INT UNSIGNED,
     VehicleLicensePlate VARCHAR(10),
     FOREIGN KEY (PoliceOfficerID) REFERENCES PoliceOfficer(PoliceOfficerID),
-    FOREIGN KEY (VehicleLicensePlate) REFERENCES PatrolVehicle(LicensePlate)
+    FOREIGN KEY (VehicleLicensePlate) REFERENCES PatrolVehicle(LicensePlate),
+    PRIMARY KEY (PoliceOfficerID, VehicleLicensePlate)
+);
+CREATE TABLE Business (
+    Name VARCHAR(50),
+    StreetAddress INT UNSIGNED,
+    Risk INT UNSIGNED,
+    OwnerShip Enum("Private", "Public"),
+    Owner INT UNSIGNED,
+    FOREIGN KEY (StreetAddress) REFERENCES Street(StreetID),
+    FOREIGN KEY (Owner) REFERENCES Citizen(NationalID)
 );
